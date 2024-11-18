@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="login1.css">
+</head>
+<body>
+<div class="Login-page">
+    <div class="Login-head">
+     <div class="header">
+       <h1>Login Page</h1>
+     </div>
+        <div class="content">
+            <form 
+              name="loginform"
+              method="post"
+              action="login1.html"
+              onsubmit="return validateForm(this)"
+              >
+                <div class="Login-username">
+                        <label for="Email">Email</label><br>
+                        <input 
+                            type="email" 
+                            name="Email" 
+                            id="email1"  
+                            placeholder="Enter the Email"
+                            oninput="validateEmail(this,'Email')" 
+                        /><br>
+                        <p class="errormessage">&nbsp;</p>
+                    </div>
+                    <div class="Login-password">
+                        <label for="password">password</label><br>
+                        <input 
+                            type="password" 
+                            name="Password" 
+                            id="password" 
+                            placeholder="Enter the password"
+                            oninput="validatePass(this,'Password')"
+                        /><br>
+                        <p class="errormessage">&nbsp;</p>
+                    </div>
+                    <div class="Login-button">
+                        <button type="submit">Login</button>
+                </div>
+                <div class="signup">
+                     <p>Don't Have an account? <a href="form.html">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+ <script src="login.js"></script>
+    
+</body>
+</html>

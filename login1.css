@@ -1,0 +1,106 @@
+body{
+    position: relative;
+    
+}
+.Login-page{
+   display: flex;
+   justify-content: center;
+   transform:translatex(0px) translatey(0px);
+}
+.Login-head{
+    margin: 30px;
+    border: black solid;
+    border-radius: 20px;
+    background-color: aqua;
+    margin-top: 10%;
+}
+.header{
+    text-align: center;
+}
+.content{
+    padding: 20px;
+}
+label {
+    margin-left: 50px;
+    font-size: large;
+}
+input{
+   
+    margin: 10px 0px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.Login-button{
+    text-align: center;
+    margin-top: 30px;
+    bottom: 20px;
+    
+}
+button{
+    padding: 10px;
+    border-radius: 15px;
+    font-size: medium;
+}
+.popup{
+    position: absolute;
+    border:  black solid;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    top: 0px;
+    left: 38%;
+    padding: 0px 50px;
+    z-index: 2;
+    display: none;
+}
+.popup-header{
+    text-align: center;
+
+}
+.popup-content{
+    padding: 8px;
+    text-align: center;
+
+}
+.popup-footer{
+    text-align: center;
+    padding: 5px;
+}
+
+.popup-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: none;
+}
+.Login-page .Login-head{
+    margin-right:25px;
+    width:284px;
+    padding-left:24px;
+   }
+   
+   .Login-head .Login-username label{
+    margin-left:78px;
+    padding-bottom:2px;
+   }
+   
+   #email1{
+    width:200px;
+    margin-left:11px;
+    margin-right:9px;
+   }
+
+   .Login-head .Login-password label{
+    margin-left:79px;
+   }
+
+   #password{
+    width:199px;
+    margin-right:9px;
+    padding-left:9px;
+    margin-left:10px;
+    transform:translatex(0px) translatey(0px);
+   }

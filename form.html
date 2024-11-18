@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .form-input {
+            margin-bottom: 10px;
+        }
+        .errormessage {
+            color: red;
+            margin: 0;
+        }
+
+        .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover{
+  background-color: #3e8e41;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display:block;
+}
+    </style>
+   <link rel="stylesheet" href="form1.css">
+</head>
+<body>
+   <!-- <header>
+    <div class="dropdown">
+      <button id="myBtn" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+   </header> -->
+    <form
+    name="ContactForm"
+    method="POST"
+    action="display.php"
+    onsubmit="return validateForm(this)"
+    class="main"
+  >
+    <div class="form-input">
+        <label for="FirstName">First Name<span>*</span></label>
+        <input
+          id="FirstName"
+          type="text"
+          name="Firstname"
+          value=""
+          placeholder="Enter your FirstName"
+          oninput="validateName(this, 'First Name')"
+        />
+        <p class="errormessage">&nbsp;</p>
+    </div>
+
+    <div class="form-input">
+      <label for="LastName">Last Name<span>*</span></label>
+      <input
+        id="LastName"
+        type="text"
+        name="LastName"
+        value=""
+        placeholder="Enter your LastName"
+        oninput="validateName(this, 'Last Name')"
+      />
+      <p class="errormessage">&nbsp;</p>
+    </div>
+
+    <div class="form-input">
+      <label for="Email">Email<span>*</span></label>
+      <input
+        id="Email"
+        type="email"
+        name="Email"
+        value=""
+        placeholder="Enter your Email"
+        oninput="validateEmail(this, 'Email')"
+      />
+      <p class="errormessage">&nbsp;</p>
+    </div>
+    <div class="form-input">
+      <label for="Phone">Phone<span>*</span></label>
+      <input
+        id="Phone"
+        type="text"
+        name="Phone"
+        value=""
+        placeholder="Enter your Phone Number"
+        oninput="validatePhone(this, 'Phone')"
+        onkeypress="return validatePhoneOnKeyPress(event)"
+      />
+      <p class="errormessage">&nbsp;</p>
+    </div>
+    <div class="form-input">
+      <label for="Country">Country<span>*</span></label>
+      <select id="Country" name="country" onchange="validateSelect(this)">
+        <option value="">Select your country</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">India</option>
+      </select>
+      <p class="errormessage">&nbsp;</p>
+    </div>
+    <div class="form-input">
+      <label class=""  for="gender">gender*</label>
+            <input type="radio" id="Male" name="gender" value="male"  onchange="validateRadioGroup()">
+            <label class="gender" for="Male">Male</label><br>
+            <input type="radio" id="Female" name="gender" value="female" onchange="validateRadioGroup()">
+            <label class="gender1"  for="Female">Female</label><br>
+            <input type="radio"  id="Other" name="gender" value="other" onchange="validateRadioGroup(this)">
+            <label class="gender2"  for="Other">Other</label>
+            <p class="errormessage">&nbsp;</p> 
+    </div>
+    <div class="form-input">
+      <label>Interests*</label>
+      <div>
+        <label
+          ><input
+            type="checkbox"
+            name="Interests"
+            value="Reading"
+          
+            onchange="validateCheckboxGroup()"
+          />
+          Reading</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="Interests"
+            value="Traveling"
+            onchange="validateCheckboxGroup()"
+          />
+          Traveling</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="Interests"
+            value="Sports"
+            onchange="validateCheckboxGroup()"
+          />
+          Sports</label
+        >
+      </div>
+      <p class="errormessage">&nbsp;</p>
+    </div>
+    <div class="form-input">
+      <label for="Comments">Comments<span>*</span></label>
+      <textarea
+        id="Comments"
+        name="Comments"
+        rows="4"
+        cols="50"
+        oninput="validateTextArea(this, 'Comments')"
+        placeholder="Enter your comments (max 300 characters)"
+      ></textarea>
+      <p class="errormessage">&nbsp;</p>
+    </div>
+    <div class="form-input">
+        <label for="Password">Password <span>*</span> </label>
+        <input 
+        type="password"
+        id="password"
+        name="Password"
+        oninput="validatePass(this,'Password')"/> 
+        <p class="errormessage">&nbsp;</p>
+      </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+    <div class="links">
+     Already Have an account?<a href="login1.html">Login Page</a>
+  </div>
+  </form>
+  
+  <script src="validate1.js"></script>
+  <!-- <script>
+// Get the button, and when the user clicks on it, execute myFunction
+document.getElementById("myBtn").onclick = function() {myFunction()};
+
+/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function myFunction() {
+document.getElementById("myDropdown").classList.toggle("show");
+}
+  </script> -->
+</body>
+</html>
